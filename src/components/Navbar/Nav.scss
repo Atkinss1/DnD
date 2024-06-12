@@ -6,22 +6,26 @@ $background-color: #F7CE65;
 .navbar-container {
   display: flex;
   height: 120px;
-  background-color: $background-color;
+  background-color: $secondary-color;
 }
 
 .navbar-components {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
   margin-inline: 20px;
 }
 
-.nav-bar-title {
+.nav-bar-logo {
+  background-image: url('/dungeons-and-dragons-logo.jpg');
+  background-size: contain;
+  border-radius: 20px;
+  height: 95%;
+  width: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 80px;
 }
 
 .nav-bar-topics {

@@ -1,7 +1,5 @@
-type TopicChoices = string;
 
-
-export const topics: TopicChoices[] = [
+export const topics: string[] = [
   "Classes",
   "Equipment",
   "Feats",
