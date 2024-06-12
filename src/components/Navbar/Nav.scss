@@ -1,0 +1,18 @@
+$text-color: #030303;
+$primary-color: #290000;
+$secondary-color: #FFFEBD;
+$background-color: #F7CE65;
+
+.navbar-container {
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+}
+
+.navbar-components {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
