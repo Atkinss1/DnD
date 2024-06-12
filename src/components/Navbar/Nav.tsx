@@ -1,4 +1,5 @@
 import './Nav.scss'
+import { topics } from '../../assets/styles/data/topics';
 
 const Nav = () => {
   return (
@@ -8,23 +9,12 @@ const Nav = () => {
           D&D Creator
         </div>
         <div className="nav-bar-topics">
-          <h3>Classes</h3>
-          <p>|</p>
-          <h3>Equipment</h3>
-          <p>|</p>
-          <h3>Feats</h3>
-          <p>|</p>
-          <h3>Features</h3>
-          <p>|</p>
-          <h3>Monsters</h3>
-          <p>|</p>
-          <h3>Races</h3>
-          <p>|</p>
-          <h3>Rules</h3>
-          <p>|</p>
-          <h3>Spells</h3>
-          <p>|</p>
-          <h3>Traits</h3>
+          {topics.map(topic => {
+            return <>
+              <h3>{topic}</h3>
+              <p>|</p>
+            </>
+          })}
         </div>
       </div>
     </div>
