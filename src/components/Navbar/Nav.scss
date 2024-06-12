@@ -4,15 +4,30 @@ $secondary-color: #FFFEBD;
 $background-color: #F7CE65;
 
 .navbar-container {
-  border: 2px solid black;
   display: flex;
-  justify-content: center;
-  align-items: center;
   height: 120px;
+  background-color: $background-color;
 }
 
 .navbar-components {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-inline: 20px;
+}
+
+.nav-bar-title {
+  display: flex;
   justify-content: center;
-  gap: 50px;
+  align-items: center;
+  height: 100%;
+  width: 80px;
+}
+
+.nav-bar-topics {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-right: 20px;
+  padding: 20px;
 }

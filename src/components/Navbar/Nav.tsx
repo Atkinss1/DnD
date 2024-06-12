@@ -4,17 +4,28 @@ const Nav = () => {
   return (
     <div className="navbar-container">
       <div className="navbar-components">
-        <h3>Classes</h3>
-        <h3>Equipment</h3>
-        <h3>Feats</h3>
-        <h3>Features</h3>
-        <h3>Monsters</h3>
-        <h3>Races</h3>
-        <h3>Rules</h3>
-        <h3>Spells</h3>
-        <h3>Subclasses</h3>
-        <h3>Subraces</h3>
-        <h3>Traits</h3>
+        <div className="nav-bar-title">
+          D&D Creator
+        </div>
+        <div className="nav-bar-topics">
+          <h3>Classes</h3>
+          <p>|</p>
+          <h3>Equipment</h3>
+          <p>|</p>
+          <h3>Feats</h3>
+          <p>|</p>
+          <h3>Features</h3>
+          <p>|</p>
+          <h3>Monsters</h3>
+          <p>|</p>
+          <h3>Races</h3>
+          <p>|</p>
+          <h3>Rules</h3>
+          <p>|</p>
+          <h3>Spells</h3>
+          <p>|</p>
+          <h3>Traits</h3>
+        </div>
       </div>
     </div>
   )
