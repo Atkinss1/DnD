@@ -1,3 +1,5 @@
+import '../../assets/styles/topicLayout.scss';
+
 interface TopicProps {
   topic: string;
   length: number;
@@ -7,7 +9,9 @@ interface TopicProps {
 const TopicLayout = ({ topic, length, index }: TopicProps) => {
   return (
     <>
-      <h3>{topic}</h3>
+      <button className='topic-button'>
+          {topic}
+      </button>
       {index + 1 !== length && <p>|</p>}
     </>
   )

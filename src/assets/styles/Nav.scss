@@ -6,7 +6,8 @@ $background-color: #F7CE65;
 .navbar-container {
   display: flex;
   height: 120px;
-  background-color: $secondary-color;
+  background-color: black;
+  opacity: .8;
 }
 
 .navbar-components {
@@ -20,6 +21,7 @@ $background-color: #F7CE65;
 .nav-bar-logo {
   background-image: url('/dungeons-and-dragons-logo.jpg');
   background-size: contain;
+  background-repeat: no-repeat;
   border-radius: 20px;
   height: 95%;
   width: 400px;
@@ -31,7 +33,8 @@ $background-color: #F7CE65;
 .nav-bar-topics {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
   margin-right: 20px;
   padding: 20px;
+  color: white;
 }
