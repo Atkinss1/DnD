@@ -1,4 +1,5 @@
 import '../../assets/styles/topicLayout.scss';
+import { fetchTopic } from '../../utils/fetchTopic';
 
 interface TopicProps {
   topic: string;
@@ -6,10 +7,12 @@ interface TopicProps {
   index: number;
 }
 
+
 const TopicLayout = ({ topic, length, index }: TopicProps) => {
+ 
   return (
     <>
-      <button className='topic-button'>
+      <button onClick={() => fetchTopic(topic)} className='topic-button'>
           {topic}
       </button>
       {index + 1 !== length && <p>|</p>}
