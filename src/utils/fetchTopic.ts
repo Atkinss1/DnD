@@ -4,16 +4,16 @@ export const fetchTopic = async (cardTopic: string) => {
 
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
+      return data;
     } else {
       throw new Error('Something went wrong: ');
     }
     } catch (error: unknown) {
       if (error instanceof Error) {
-        console.log(error.message);
-      } else (
-        console.log('Unknown error has occured')
-      );
+        return error.message;
+      } else {
+        throw new Error('Unknown error has occured');
+      }
     }
     
   };
