@@ -1,29 +1,22 @@
-import { useState } from 'react';
 import '../../assets/styles/topicLayout.scss';
+// import { useTopicContext } from '../../context/Topic';
+import { TopicProps } from '../../types/types';
 import { fetchTopic } from '../../utils/fetchTopic';
-
-interface TopicProps {
-  topic: string;
-  length: number;
-  index: number;
-}
 
 
 const TopicLayout = ({ topic, length, index }: TopicProps) => {
 
-  const [data, setData] = useState(null);
-  const [error, setError] = useState<string | null>(null);
+  // const { setTopic } = useTopicContext();
 
-  const handleClick = async () => { 
+  const handleClick = async () => {
     try { 
-      const result = await fetchTopic(topic);
-      setData(result);
-      console.log(result);
-      setError(null);
-    } catch (error: unknown) {
-      setError('Failed to fetch data.');
-      }
+      const results = await fetchTopic(topic);
+      console.log('results in TopicLayout', results);
+    } catch (error) {
+      console.log('error');
     }
+  };
+
  
   return (
     <>

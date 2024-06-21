@@ -1,4 +1,7 @@
 import '../../assets/styles/hero.scss'
+import { useTopicContext } from '../../context/Topic';
+
+const { topics } = useTopicContext();
 
 const Hero = () => {
   return (
@@ -10,6 +13,18 @@ const Hero = () => {
           <p>Need a hand making your first character or NPC?</p>
         </div>
         <button className='hero-button'>Start Here!</button>
+      </div>
+      <div className='topic-card'>
+        {topics.length > 0 ? (
+          topics.map((topic) => (
+            <div key={topic.index}>
+              <h1>{topic.name}</h1>
+              <p>{topic.url}</p>
+            </div>
+          ))
+        ) : (
+            <p>No topics selected</p>
+        )}
       </div>
     </div>
   )
