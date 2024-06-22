@@ -2,10 +2,11 @@ $text-color: #fcc63f;
 
 .hero-container {
   position: relative;
-  height: 850px;
+  min-height: 850px;
   width: 100%;
   margin-top: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -47,11 +48,28 @@ $text-color: #fcc63f;
 
 .hero-button {
   position: absolute;
-  top: 70%;
+  top: 500px;
   font-size: 24px;
   border-radius: 5px;
   padding: 16px 30px;
   background-color: #fcc63f;
   transform: translateY(-130%);
   cursor: pointer;
+}
+
+.topic-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin: 20px;
+}
+
+.topic-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 200px;
+  margin: 10px;
 }

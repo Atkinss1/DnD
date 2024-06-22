@@ -10,6 +10,7 @@ const TopicContext = createContext<TopicContextType | undefined>(undefined);
 
 const TopicProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [topics, setTopic] = useState<Topics[]>([]);
+
   
   return (
     <TopicContext.Provider value={{ topics, setTopic }}>

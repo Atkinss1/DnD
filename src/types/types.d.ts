@@ -1,5 +1,9 @@
 import React from "react";
 
+export interface NavTopic {
+  navTopic: string;
+}
+
 export interface Topics {
   index: string;
   name: string;

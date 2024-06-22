@@ -1,7 +1,7 @@
 import { Topics } from "../types/types";
 
 
-export const fetchTopic = async (cardTopic: string): Promise<Topics> => {
+export const fetchTopic = async (cardTopic: string): Promise<Topics[]> => {
     try { 
       const response = await fetch(`https://www.dnd5eapi.co/api/${cardTopic}`);
 
