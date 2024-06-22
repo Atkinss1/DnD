@@ -11,7 +11,6 @@ const TopicLayout = ({ topic, length, index }: TopicProps) => {
   const handleClick = async () => {
     try { 
       const results = await fetchTopic(topic);
-      console.log('results in TopicLayout', results);
       setTopic(results);
     } catch (error) {
       console.log('error');

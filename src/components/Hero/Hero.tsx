@@ -1,5 +1,9 @@
+import { Topic } from '@mui/icons-material';
 import '../../assets/styles/hero.scss'
 import { useTopicContext } from '../../context/Topic';
+import validArray from '../../utils/validArray';
+import TopicCard from '../Card/TopicCard';
+import ClassCard from '../Card/ClassCard';
 
 
 const Hero = () => {
@@ -16,17 +20,13 @@ const Hero = () => {
         <button className='hero-button'>Start Here!</button>
       </div>
       <div className='topic-container'>
-        {<p>Number of {topics.length}</p>}
-        {topics.length > 0 ? (
+        {topics && validArray(topics) ? (
           topics.map((topic) => (
-            <div className='topic-card' key={topic.index}>
-              <h1>{topic.name}</h1>
-              <p>{topic.url}</p>
-            </div>
+            <TopicCard key={topic.index} name={topic.name} url={topic.url} />
           ))
-        ) : (
-            <p>No topics selected</p>
-        )}
+        ) : null
+         }
+        
       </div>
     </div>
   )

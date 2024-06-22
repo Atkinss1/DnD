@@ -1,12 +1,14 @@
+import { BASEURL } from "../constants";
 import { Topics } from "../types/types";
 
 
 export const fetchTopic = async (cardTopic: string): Promise<Topics[]> => {
-    try { 
-      const response = await fetch(`https://www.dnd5eapi.co/api/${cardTopic}`);
+  try { 
+      const response = await fetch(`${BASEURL}${cardTopic}`);
 
     if (response.ok) {
       const data = await response.json();
+      console.log('fetchTopic', data);
       return data.results;
     } else {
       throw new Error('Something went wrong: ');
