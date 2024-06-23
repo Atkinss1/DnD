@@ -3,12 +3,12 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, Button, CardActions } from '@mui/material';
-import { TopicCardProps } from '../../types/types';
+import { ClassCardProps } from '../../types/types';
 import { fetchTopic } from '../../utils/fetchTopic';
 import { useTopicContext } from '../../context/Topic';
 import parseURLAPI from '../../utils/parseUrl';
 
-const ClassCard = ({ name, url }: TopicCardProps) => {
+const ClassCard = ({ name, url }: ClassCardProps) => {
   
   const { setTopic } = useTopicContext();
 

@@ -1,13 +1,11 @@
-import { Topic } from '@mui/icons-material';
 import '../../assets/styles/hero.scss'
 import { useTopicContext } from '../../context/Topic';
 import validArray from '../../utils/validArray';
-import TopicCard from '../Card/TopicCard';
 import ClassCard from '../Card/ClassCard';
-
+import TopicCard from '../Card/TopicCard';
 
 const Hero = () => {
-  const { topics } = useTopicContext();
+  const { topics, topicInfo} = useTopicContext();
 
   return (
     <div className="hero-container">
@@ -24,9 +22,10 @@ const Hero = () => {
           topics.map((topic) => (
             <TopicCard key={topic.index} name={topic.name} url={topic.url} />
           ))
-        ) : null
-         }
-        
+        ) : topics ?
+          <ClassCard key={topicInfo?.index} class_levels={topicInfo?.class_levels} />
+          : null
+        }
       </div>
     </div>
   )

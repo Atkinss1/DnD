@@ -2,36 +2,100 @@ import React from "react";
 
 export interface NavTopic {
   navTopic: string;
-}
+};
 
 export interface Topics {
   index: string;
   name: string;
   url: string;
-}
+};
 
 export interface TopicProps {
   topic: string;
   length: number;
   index: number;
-}
+};
 
 export interface TopicCardProps {
   name: string;
   url: string;
+};
+
+interface BaseCharacterInterface {
+  index: string;
+  name: string;
+  url: string;
+};
+
+interface MultiClassing {
+  prerequisites: Prerequisites[];
+  proficiencies: Proficiencies[];
+  name: string;
+};
+
+interface Prerequisites {
+  abilityScore: AbilityScore;
+  minimumScore: number;
+};
+
+interface AbilityScore extends BaseCharacterInterface {
+};
+
+interface Proficiencies extends BaseCharacterInterface {
+};
+
+interface ProficiencyChoices {
+  choose: number;
+  description: string;
+  from: ProficiencyOptions;
+};
+
+interface ProficiencyOptions {
+  from: Options[];
+};
+
+interface Options {
+  item: BaseCharacterInterface[];
+};
+
+interface SavingThrows { 
+  savingThrows: BaseCharacterInterface[];
+};
+
+interface StartingEquipment {
+  equipment: BaseCharacterInterface[]; 
 }
 
-export interface ClassCardProps {
+interface StartingEquipmentOptions {
+  choose: number;
+  description: string;
+  options: EquipmentOptions[];
+}
+
+interface EquipmentOptions {
+  count: number;
+  of: EquipmentDescription
+}
+
+interface EquipmentDescription {
+  index: string;
+  name: string;
+  url: string;
+}
+
+interface SubClasses extends BaseCharacterInterface {
+}
+
+export interface ClassCardProps extends BaseCharacterInterface {
   class_levels: string;
   hit_die: number;
-  // multi classing is an object
-  name: string;
-  //proficiencies is an array
-  //proficiency_choices is an array
-  // saving_throws is an array
-  // starting_equipment is an array
-  // starting_equipment_options is an array
-  // subclasses is an array
+  multiclassing: MultiClassing;
+  proficiencies: Proficiencies[];
+  proficiencyChoices: ProficiencyChoices[];
+  savingThrows: SavingThrows[];
+  startingEquipment: StartingEquipment[];
+  startingEquipmentOptions: StartingEquipmentOptions[];
+  subClasses: SubClasses[];
 }
 
 type SetTopicProps<T> = {
