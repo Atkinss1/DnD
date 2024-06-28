@@ -5,9 +5,7 @@ export interface NavTopic {
 };
 
 export interface Topics {
-  index: string;
-  name: string;
-  url: string;
+  [key: string]: string;
 };
 
 export interface TopicProps {
@@ -74,7 +72,7 @@ interface StartingEquipmentOptions {
 
 interface EquipmentOptions {
   count: number;
-  of: EquipmentDescription
+  of: EquipmentDescription;
 }
 
 interface EquipmentDescription {
