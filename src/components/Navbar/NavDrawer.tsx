@@ -9,27 +9,34 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import { useCategories } from '../../hooks/useCategories';
-import { BASEURL } from '../../constants';
+import { useNavigate } from 'react-router-dom';
 
 export default function NavDrawer() {
   const [open, setOpen] = useState(false);
 
   const topics = useCategories();
+  const navigate = useNavigate();
+
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
+
+  const handleNavigation = (api: string) => {
+    const category = api.replace('/api', '');
+    navigate(category)
+    setOpen(false);
+  }
 
   const DrawerList = (
     <Box sx={{ width: 250, background: '#930C10', color: 'white' }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
         {Object.entries(topics).map(([text, api]) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => handleNavigation(api)}>
               <ListItemIcon>
                  <ArrowCircleRightIcon />
               </ListItemIcon>
-              <ListItemText primary={text}
-                onClick={() => console.log(`${BASEURL}${api}`)} />
+              <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
         ))}

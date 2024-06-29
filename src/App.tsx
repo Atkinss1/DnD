@@ -10,8 +10,8 @@ function App() {
       <Nav />
       
       <Routes>
-        <Route path='/' element={<Hero />}>
-        </Route>
+        <Route path='/' element={<Hero />}/>
+        <Route path='/:category' element={<Hero />} />
       </Routes> 
     </>
   )
