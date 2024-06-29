@@ -9,6 +9,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import { useCategories } from '../../hooks/useCategories';
+import { BASEURL } from '../../constants';
 
 export default function NavDrawer() {
   const [open, setOpen] = useState(false);
@@ -21,13 +22,14 @@ export default function NavDrawer() {
   const DrawerList = (
     <Box sx={{ width: 250, background: '#930C10', color: 'white' }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
-        {Object.keys(topics).map((text) => (
+        {Object.entries(topics).map(([text, api]) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
                  <ArrowCircleRightIcon />
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={text}
+                onClick={() => console.log(`${BASEURL}${api}`)} />
             </ListItemButton>
           </ListItem>
         ))}

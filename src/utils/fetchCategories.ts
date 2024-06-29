@@ -4,7 +4,7 @@ import { Topics } from "../types/types";
 
 export const fetchCategories = async (): Promise<Topics> => {
   try { 
-      const response = await fetch(`${BASEURL}`);
+      const response = await fetch(`${BASEURL}/api`);
 
     if (response.ok) {
       const data = await response.json();

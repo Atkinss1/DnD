@@ -10,7 +10,6 @@ const Hero = () => {
           <h3>Character Creator</h3>
           <p>Need a hand making your first character or NPC?</p>
         </div>
-        <button className='hero-button'>Start Here!</button>
       </div>
       <div className='topic-container'>
         
