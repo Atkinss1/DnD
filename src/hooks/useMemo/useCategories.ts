@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
-import { Topics } from "../types/types";
-import { fetchAllCategories } from "../utils/Categories/fetchAllCategories";
+import { Topics } from "../../types/types";
+import { fetchAllCategories } from "../../utils/Categories/fetchAllCategories";
+
+// Memoize Categories
 
 export const useCategories = (): Topics => { 
   const [categories, setCategories] = useState<Topics>({});

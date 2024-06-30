@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
-import '../../assets/styles/hero.scss'
-import { useAbilityScores } from '../../hooks/useAbilityScores';
+import '../../assets/styles/hero.scss';
+import { useAbilityScores } from '../../hooks/useMemo/useAbilityScores';
 
 const Hero = () => {
 

@@ -1,85 +1,84 @@
+// types.d.ts
+
 import React from "react";
 
+// Topics Interfaces
 export interface NavTopic {
   navTopic: string;
-};
+}
 
 export interface Topics {
   [key: string]: string;
-};
-
-export interface TopicProps {
-  topic: string;
-  length: number;
-  index: number;
-};
+}
 
 export interface TopicCardProps {
   name: string;
   url: string;
-};
+}
+export interface TopicProps {
+  topic: string;
+  length: number;
+  index: number;
+}
 
-interface BaseCharacterInterface extends TopicCardProps{
+// Category Interfaces
+export type AbilityScores = BaseCharacterInterface[];
+export interface SubClasses extends BaseCharacterInterface {};
+
+// Character Interfaces
+export interface BaseCharacterInterface extends TopicCardProps {
   index: string;
-};
+}
 
-interface MultiClassing {
+export interface MultiClassing {
   prerequisites: Prerequisites[];
   proficiencies: Proficiencies[];
   name: string;
-};
+}
 
-interface Prerequisites {
+export interface Prerequisites {
   abilityScore: AbilityScore;
   minimumScore: number;
-};
+}
 
-interface AbilityScores {
-  count: string;
-  results: BaseCharacterInterface[];
-};
+export interface Proficiencies extends BaseCharacterInterface {}
 
-interface Proficiencies extends BaseCharacterInterface {
-};
-
-interface ProficiencyChoices {
+export interface ProficiencyChoices {
   choose: number;
   description: string;
   from: ProficiencyOptions;
-};
-
-interface ProficiencyOptions {
-  from: Options[];
-};
-
-interface Options {
-  item: BaseCharacterInterface[];
-};
-
-interface SavingThrows { 
-  savingThrows: BaseCharacterInterface[];
-};
-
-interface StartingEquipment {
-  equipment: BaseCharacterInterface[]; 
 }
 
-interface StartingEquipmentOptions {
+export interface ProficiencyOptions {
+  from: Options[];
+}
+
+export interface Options {
+  item: BaseCharacterInterface[];
+}
+
+export interface SavingThrows {
+  savingThrows: BaseCharacterInterface[];
+}
+
+export interface StartingEquipment {
+  equipment: BaseCharacterInterface[];
+}
+
+export interface StartingEquipmentOptions {
   choose: number;
   description: string;
   options: EquipmentOptions[];
 }
 
-interface EquipmentOptions {
+export interface EquipmentOptions {
   count: number;
   of: EquipmentDescription;
 }
 
-interface EquipmentDescription extends BaseCharacterInterface {
-}
+export interface EquipmentDescription extends BaseCharacterInterface {}
 
-interface SubClasses extends BaseCharacterInterface {
-}
+
 
 export interface ClassCardProps extends BaseCharacterInterface {
   class_levels: string;
@@ -91,8 +90,4 @@ export interface ClassCardProps extends BaseCharacterInterface {
   startingEquipment: StartingEquipment[];
   startingEquipmentOptions: StartingEquipmentOptions[];
   subClasses: SubClasses[];
-}
-
-type SetTopicProps<T> = {
-  setTopic: React.Dispatch<React.SetStateAction<T>>
 }

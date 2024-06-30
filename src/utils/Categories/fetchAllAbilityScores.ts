@@ -7,8 +7,7 @@ export const fetchAllAbilityScores = async (api: string): Promise<AbilityScores>
 
     if (response.ok) {
       const data = await response.json();
-      console.log('Ability-scores API', data);
-      return data;
+      return data.results;
     } else {
       throw new Error('Something went wrong: ');
     }

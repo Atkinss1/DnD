@@ -1,16 +1,17 @@
 import { useEffect, useMemo, useState } from "react";
-import { AbilityScores } from "../types/types";
-import { fetchAllAbilityScores } from "../utils/Categories/fetchAllAbilityScores";
-import { BASEURL } from "../constants";
+import { BASEURL } from "../../constants";
+import { AbilityScores } from "../../types/types";
+import { fetchAllAbilityScores } from "../../utils/Categories/fetchAllAbilityScores";
 
-export const useAbilityScores =  (): AbilityScores | undefined => {
-  const [abilityScore, setAbilityScore] = useState<AbilityScores | undefined>(undefined);
+// Memoize AbilityAttributes
+
+export const useAbilityScores =  (): AbilityScores => {
+  const [abilityScore, setAbilityScore] = useState<AbilityScores>([]);
 
   useEffect(() => { 
     const fetchData = async () => {
       try {
         const abilityScoreData = await fetchAllAbilityScores(`${BASEURL}/api/ability-scores`);
-        console.log(abilityScoreData);
         setAbilityScore(abilityScoreData);
       } catch (error: unknown) {
         console.error('Error fetching categories: ', error);
