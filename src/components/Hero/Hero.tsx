@@ -1,12 +1,10 @@
 import { useParams } from 'react-router-dom';
 import '../../assets/styles/hero.scss';
-import { useAbilityScores } from '../../hooks/useMemo/useAbilityScores';
 
 const Hero = () => {
 
   const { category } = useParams();
-  const abilityScores = useAbilityScores();
-  console.log('Hero ability scores: ', abilityScores);
+  
 
   return (
     <>

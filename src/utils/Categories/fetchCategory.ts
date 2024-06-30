@@ -1,9 +1,9 @@
 
-import { AbilityScores } from "../../types/types";
+import { BaseCategoryResults } from "../../types/types";
 
-export const fetchAllAbilityScores = async (api: string): Promise<AbilityScores> => {
+export const fetchCategory = async (api: string): Promise<BaseCategoryResults> => {
   try {
-    const response = await fetch(`${api}`);
+    const response = await fetch(api);
 
     if (response.ok) {
       const data = await response.json();

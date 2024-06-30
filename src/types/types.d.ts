@@ -22,7 +22,7 @@ export interface TopicProps {
 }
 
 // Category Interfaces
-export type AbilityScores = BaseCharacterInterface[];
+export type BaseCategoryResults = BaseCharacterInterface[];
 export interface SubClasses extends BaseCharacterInterface {};
 
 // Character Interfaces

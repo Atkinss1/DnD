@@ -9,12 +9,12 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCategories } from '../../hooks/useMemo/useCategories';
+import { useTopic } from '../../hooks/useTopics';
 
 export default function NavDrawer() {
   const [open, setOpen] = useState(false);
 
-  const topics = useCategories();
+  const topics = useTopic();
   const navigate = useNavigate();
 
   const toggleDrawer = (newOpen: boolean) => () => {
