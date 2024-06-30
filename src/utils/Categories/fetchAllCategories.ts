@@ -1,8 +1,8 @@
-import { BASEURL } from "../constants";
-import { Topics } from "../types/types";
+import { BASEURL } from "../../constants";
+import { Topics } from "../../types/types";
 
 
-export const fetchCategories = async (): Promise<Topics> => {
+export const fetchAllCategories = async (): Promise<Topics> => {
   try { 
       const response = await fetch(`${BASEURL}/api`);
 

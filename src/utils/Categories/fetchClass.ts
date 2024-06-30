@@ -1,5 +1,5 @@
-import { BASEURL } from "../constants";
-import { ClassCardProps } from "../types/types";
+import { BASEURL } from "../../constants";
+import { ClassCardProps } from "../../types/types";
 
 export const fetchClass = async (cardTopic: string): Promise<ClassCardProps> => {
   try { 

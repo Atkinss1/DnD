@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { fetchCategories } from "../utils/fetchCategories";
 import { Topics } from "../types/types";
+import { fetchAllCategories } from "../utils/Categories/fetchAllCategories";
 
 export const useCategories = (): Topics => { 
   const [categories, setCategories] = useState<Topics>({});
@@ -8,9 +8,9 @@ export const useCategories = (): Topics => {
   useEffect(() => { 
     const fetchData = async () => {
       try {
-        const categoryData = await fetchCategories();
+        const categoryData = await fetchAllCategories();
         setCategories(categoryData);
-      } catch (error) {
+      } catch (error: unknown) {
         console.error('Error fetching categories: ', error);
       }
     };

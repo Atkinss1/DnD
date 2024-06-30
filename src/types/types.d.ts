@@ -19,10 +19,8 @@ export interface TopicCardProps {
   url: string;
 };
 
-interface BaseCharacterInterface {
+interface BaseCharacterInterface extends TopicCardProps{
   index: string;
-  name: string;
-  url: string;
 };
 
 interface MultiClassing {
@@ -36,7 +34,9 @@ interface Prerequisites {
   minimumScore: number;
 };
 
-interface AbilityScore extends BaseCharacterInterface {
+interface AbilityScores {
+  count: string;
+  results: BaseCharacterInterface[];
 };
 
 interface Proficiencies extends BaseCharacterInterface {
@@ -75,10 +75,7 @@ interface EquipmentOptions {
   of: EquipmentDescription;
 }
 
-interface EquipmentDescription {
-  index: string;
-  name: string;
-  url: string;
+interface EquipmentDescription extends BaseCharacterInterface {
 }
 
 interface SubClasses extends BaseCharacterInterface {
