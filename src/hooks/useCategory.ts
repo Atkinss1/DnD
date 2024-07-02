@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,} from "react";
 import { BaseCategoryResults } from "../types/types";
 
 import { BASEURL } from "../constants";
@@ -22,5 +22,4 @@ export const useCategory =  (categoryAPI: string): BaseCategoryResults => {
   }, []);
 
   return category;
-
 }
