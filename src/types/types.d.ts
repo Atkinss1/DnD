@@ -1,6 +1,7 @@
 // types.d.ts
 
-import React from "react";
+import React, { ReactNode } from "react";
+import { ActionFunction } from "react-router-dom";
 
 // Topics Interfaces
 export interface NavTopic {
@@ -78,8 +79,6 @@ export interface EquipmentOptions {
 
 export interface EquipmentDescription extends BaseCharacterInterface {}
 
-
-
 export interface ClassCardProps extends BaseCharacterInterface {
   class_levels: string;
   hit_die: number;
@@ -91,3 +90,26 @@ export interface ClassCardProps extends BaseCharacterInterface {
   startingEquipmentOptions: StartingEquipmentOptions[];
   subClasses: SubClasses[];
 }
+
+// Reducer interfaces / types
+
+export interface CategoryProviderProps {
+  categoryAPI: string;
+  children: ReactNode;
+}
+
+export type CategoryState = {
+  categories: BaseCategoryResults;
+  topics: Topics;
+  loadingCategories: boolean;
+  loadingTopics: boolean;
+  error: string | null;
+}
+
+export type CategoryAction =
+  | { type: "FETCH_CATEGORIES_REQUEST" }
+  | { type: "FETCH_CATEGORIES_SUCCESS"; payload: BaseCategoryResults }
+  | { type: "FETCH_CATEGORIES_FAILURE"; error: string }
+  | { type: "FETCH_TOPICS_REQUEST" }
+  | { type: "FETCH_TOPICS_SUCCESS"; payload: Topics }
+  | { type: "FETCH_TOPICS_FAILURE"; error: string };
