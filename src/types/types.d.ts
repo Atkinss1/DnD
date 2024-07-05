@@ -100,6 +100,7 @@ export interface CategoryProviderProps {
 
 export type CategoryState = {
   categories: BaseCategoryResults;
+  categoryAPI: string;
   topics: Topics;
   loadingCategories: boolean;
   loadingTopics: boolean;
@@ -107,9 +108,10 @@ export type CategoryState = {
 }
 
 export type CategoryAction =
+  | { type: "SET_CATEGORY_API"; payload: string }
   | { type: "FETCH_CATEGORIES_REQUEST" }
   | { type: "FETCH_CATEGORIES_SUCCESS"; payload: BaseCategoryResults }
-  | { type: "FETCH_CATEGORIES_FAILURE"; error: string }
+  | { type: "FETCH_CATEGORIES_FAILURE"; error: unknown }
   | { type: "FETCH_TOPICS_REQUEST" }
   | { type: "FETCH_TOPICS_SUCCESS"; payload: Topics }
-  | { type: "FETCH_TOPICS_FAILURE"; error: string };
+  | { type: "FETCH_TOPICS_FAILURE"; error: unknown };

@@ -1,10 +1,12 @@
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import '../../assets/styles/hero.scss';
 
 const Hero = () => {
 
   const { category } = useParams();
+  const location = useLocation();
   
+  const apiPath = location.pathname;
 
   return (
     <>

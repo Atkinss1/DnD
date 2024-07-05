@@ -11,7 +11,7 @@ function App() {
       
       <Routes>
         <Route path='/' element={<Hero />}/>
-        <Route path='/:category' element={<Hero />} />
+        <Route path='/api/:category' element={<Hero />} />
       </Routes> 
     </>
   )
