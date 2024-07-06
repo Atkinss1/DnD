@@ -1,1 +1,1 @@
-export const BASEURL = 'https://www.dnd5eapi.co/api/'
+export const BASEURL = 'https://www.dnd5eapi.co'

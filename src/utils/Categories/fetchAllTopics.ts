@@ -1,10 +1,9 @@
-import { BASEURL } from "../constants";
-import { Topics } from "../types/types";
+import { Topics } from "../../types/types";
 
 
-export const fetchCategories = async (): Promise<Topics> => {
+export const fetchAllTopics = async (api: string): Promise<Topics> => {
   try { 
-      const response = await fetch(`${BASEURL}`);
+      const response = await fetch(api);
 
     if (response.ok) {
       const data = await response.json();

@@ -1,29 +1,38 @@
-import { useState } from 'react';
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
+import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
-import { useCategories } from '../../hooks/useCategories';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useCategoryContext } from '../../context/categoryProvider';
 
 export default function NavDrawer() {
   const [open, setOpen] = useState(false);
 
-  const topics = useCategories();
+  const { topics } = useCategoryContext();
+  const navigate = useNavigate();
+
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
 
+  const handleNavigation = (api: string) => {
+    // const category = api.replace('/api', '');
+    navigate(api)
+    setOpen(false);
+  }
+
   const DrawerList = (
     <Box sx={{ width: 250, background: '#930C10', color: 'white' }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
-        {Object.keys(topics).map((text) => (
+        {Object.entries(topics).map(([text, api]) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => handleNavigation(api)}>
               <ListItemIcon>
                  <ArrowCircleRightIcon />
               </ListItemIcon>
