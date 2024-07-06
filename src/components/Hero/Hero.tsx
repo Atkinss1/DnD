@@ -33,7 +33,6 @@ const Hero = () => {
 
       {category ? (
         categories.map((category) => {
-          {console.log('category map', category)}
           return <li key={category.index}>{category.name}</li>
         })
       ) : (

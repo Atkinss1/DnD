@@ -7,7 +7,6 @@ export const fetchCategory = async (api: string): Promise<BaseCategoryResults> =
 
     if (response.ok) {
       const data = await response.json();
-      console.log('fetchCategory function', data);
       return data.results;
     } else {
       throw new Error('Something went wrong: ');
