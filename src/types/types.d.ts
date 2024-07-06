@@ -105,6 +105,7 @@ export type CategoryState = {
   loadingCategories: boolean;
   loadingTopics: boolean;
   error: string | null;
+  fetchCategoryData?: (api: string) => Promise<void>;
 }
 
 export type CategoryAction =

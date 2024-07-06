@@ -3,6 +3,7 @@ import { CategoryState } from "../types/types";
 import { categoryReducer, initialState } from "../reducer/categoryReducer";
 import { BASEURL } from "../constants";
 import { fetchAllTopics } from "../utils/Categories/fetchAllTopics";
+import { fetchCategory } from "../utils/Categories/fetchCategory";
 
 export const CategoryContext = createContext<CategoryState>(initialState);
 
@@ -30,8 +31,24 @@ export const CategoryProvider = ({ children }: CategoryProviderProps) => {
     fetchData();
   }, []);
 
+  const fetchCategoryData = async (api: string) => {
+    try {
+      dispatch({ type: "FETCH_CATEGORIES_REQUEST" });
+      const categoryData = await fetchCategory(`${BASEURL}${api}`);
+
+      dispatch({ type: "FETCH_CATEGORIES_SUCCESS", payload: categoryData });
+    } catch (error: unknown) {
+      dispatch({ type: "FETCH_CATEGORIES_FAILURE", error: error });
+    };
+  };
+
+  const value = {
+    ...state,
+    fetchCategoryData
+  }
+
   return (
-    <CategoryContext.Provider value={state}>
+    <CategoryContext.Provider value={value}>
       {children}
     </CategoryContext.Provider>
   )
