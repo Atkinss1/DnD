@@ -5,7 +5,7 @@ import { useCategoryContext } from '../../context/categoryProvider';
 
 const Hero = () => {
 
-  const { fetchCategoryData } = useCategoryContext();
+  const { fetchCategoryData, categories, loadingCategories, error } = useCategoryContext();
   const { category } = useParams();
   const location = useLocation();
   
@@ -15,7 +15,15 @@ const Hero = () => {
     if (category && fetchCategoryData) {
       fetchCategoryData(apiPath);
     }
-  },[apiPath]);
+  }, [apiPath]);
+  
+  if (loadingCategories) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>
+  }
 
   return (
     <>
@@ -24,7 +32,10 @@ const Hero = () => {
       </div>
 
       {category ? (
-        <h1>INSERT COMPONENT</h1>
+        categories.map((category) => {
+          {console.log('category map', category)}
+          return <li key={category.index}>{category.name}</li>
+        })
       ) : (
           <div className="hero-container">
           <div className="hero-image">
