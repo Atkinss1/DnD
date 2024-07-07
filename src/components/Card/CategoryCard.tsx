@@ -5,8 +5,7 @@ interface CategoryCardProps {
   url: string;
 }
 
-export const CategoryCard = ({ name, url }: CategoryCardProps) => {
-
+export const CategoryCard = ({ name, url}: CategoryCardProps) => {
   const navigate = useNavigate();
 
   const handleClick = (api: string) => { 

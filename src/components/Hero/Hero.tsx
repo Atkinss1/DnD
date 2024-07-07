@@ -13,6 +13,7 @@ const Hero = () => {
   const location = useLocation();
 
   const apiPath = location.pathname;
+  console.log('categories', categories);
 
   useEffect(() => {
     fetchCategoryApi({ category, topic, fetchCategoryData, clearTopicApi, apiPath });
@@ -33,11 +34,11 @@ const Hero = () => {
         <h1>{category ? `Category: ${category}` : null}</h1>
       </div>
 
-      {category ? (
-        categories.map((category) => 
-          <CategoryCard key={category.index} name={category.name} url={category.url} />
+      {category && !topic ? (
+        categories.map((category) =>  
+          <CategoryCard key={category.index} {...category} />
         )
-      ) : (
+      ) : topic ? null : (
           <div className="hero-container">
           <div className="hero-image">
             <div className="hero-image-text">
