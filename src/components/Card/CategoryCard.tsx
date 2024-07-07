@@ -1,11 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import { CardProps } from "../../types/types";
 
-interface CategoryCardProps {
-  name: string;
-  url: string;
-}
-
-export const CategoryCard = ({ name, url}: CategoryCardProps) => {
+export const CategoryCard = ({ name, url}: CardProps) => {
   const navigate = useNavigate();
 
   const handleClick = (api: string) => { 

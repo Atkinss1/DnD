@@ -5,10 +5,11 @@ import { useCategoryContext } from '../../context/categoryProvider';
 import { CategoryCard } from '../Card/CategoryCard';
 import { fetchCategoryApi } from '../../utils/Categories/fetchCategoryApi';
 import { fetchTopicApi } from '../../utils/Topics/fetchTopicApi';
+import { TopicCard } from '../Card/TopicCard';
 
 const Hero = () => {
 
-  const { fetchCategoryData, fetchTopicData, clearTopicApi, categories, loadingCategories, error } = useCategoryContext();
+  const { fetchCategoryData, fetchTopicData, clearTopicApi, categories, topicData, loadingCategories, error } = useCategoryContext();
   const { category, topic } = useParams();
   const location = useLocation();
 
@@ -38,7 +39,7 @@ const Hero = () => {
         categories.map((category) =>  
           <CategoryCard key={category.index} {...category} />
         )
-      ) : topic ? null : (
+      ) : topic ? <TopicCard {...topicData}/> : (
           <div className="hero-container">
           <div className="hero-image">
             <div className="hero-image-text">
