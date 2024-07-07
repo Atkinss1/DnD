@@ -2,6 +2,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import '../../assets/styles/hero.scss';
 import { useEffect } from 'react';
 import { useCategoryContext } from '../../context/categoryProvider';
+import { CategoryCard } from '../Card/CategoryCard';
 
 const Hero = () => {
 
@@ -10,6 +11,7 @@ const Hero = () => {
   const location = useLocation();
   
   const apiPath = location.pathname;
+  console.log('categories', categories);
 
   useEffect(() => {
     if (category && fetchCategoryData) {
@@ -32,10 +34,10 @@ const Hero = () => {
       </div>
 
       {category ? (
-        categories.map((category) => {
-          return <li key={category.index}>{category.name}</li>
-        })
-      ) : (
+        categories.map((category) =>  
+          <CategoryCard key={category.index} {...category} />
+        )
+      ) :  (
           <div className="hero-container">
           <div className="hero-image">
             <div className="hero-image-text">
