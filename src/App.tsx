@@ -12,6 +12,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Hero />}/>
         <Route path='/api/:category' element={<Hero />} />
+        <Route path='/api/:category/:topic' element={<Hero />} />
       </Routes> 
     </>
   )

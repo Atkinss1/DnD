@@ -36,6 +36,7 @@ export const CategoryProvider = ({ children }: CategoryProviderProps) => {
       dispatch({ type: "FETCH_CATEGORIES_REQUEST" });
       const categoryData = await fetchCategory(`${BASEURL}${api}`);
 
+      dispatch({ type: "SET_CATEGORY_API", payload: api });
       dispatch({ type: "FETCH_CATEGORIES_SUCCESS", payload: categoryData });
     } catch (error: unknown) {
       dispatch({ type: "FETCH_CATEGORIES_FAILURE", error: error });

@@ -10,9 +10,20 @@ export interface TopicCardProps {
   url: string;
 }
 
+export interface SingleTopicData {
+  index: string;
+  name: string;
+  desc: string[];
+  url: string;
+}
+
 // Category Interfaces
 
 export type BaseCategoryResults = BaseCharacterInterface[];
+
+export interface Categories {
+  [key: string]: string;
+}
 
 // Reducer interfaces / types
 
