@@ -22,7 +22,6 @@ export default function NavDrawer() {
   };
 
   const handleNavigation = (api: string) => {
-    // const category = api.replace('/api', '');
     navigate(api)
     setOpen(false);
   }
