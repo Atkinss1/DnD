@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BASEURL } from "../constants";
 import { Topics } from "../types/types";
-import { fetchAllTopics } from "../utils/Categories/fetchAllTopics";
+import { fetchAllTopics } from "../utils/Topics/fetchAllTopics";
 
 export const useTopic = (): Topics => { 
   const [topics, setTopics] = useState<Topics>({});

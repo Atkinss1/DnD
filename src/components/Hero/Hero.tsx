@@ -4,18 +4,19 @@ import { useEffect } from 'react';
 import { useCategoryContext } from '../../context/categoryProvider';
 import { CategoryCard } from '../Card/CategoryCard';
 import { fetchCategoryApi } from '../../utils/Categories/fetchCategoryApi';
+import { fetchTopicApi } from '../../utils/Topics/fetchTopicApi';
 
 const Hero = () => {
 
-  const { fetchCategoryData, categories, loadingCategories, error } = useCategoryContext();
+  const { fetchCategoryData, fetchTopicData, clearTopicApi, categories, loadingCategories, error } = useCategoryContext();
   const { category, topic } = useParams();
   const location = useLocation();
 
   const apiPath = location.pathname;
 
   useEffect(() => {
-    fetchCategoryApi({ category, topic, fetchCategoryData, apiPath });
-    
+    fetchCategoryApi({ category, topic, fetchCategoryData, clearTopicApi, apiPath });
+    fetchTopicApi({ topic, fetchTopicData, apiPath });
   }, [apiPath]);
   
   if (loadingCategories) {
