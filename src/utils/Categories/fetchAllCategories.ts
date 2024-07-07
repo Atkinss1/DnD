@@ -1,14 +1,13 @@
-import { Categories} from "../../types/types";
+import { BaseCategoryResults } from "../../types/types";
 
 
-export const fetchAllCategories = async (api: string): Promise<Categories> => {
+export const fetchAllCategories = async (api: string): Promise<BaseCategoryResults> => {
   try { 
       const response = await fetch(api);
 
     if (response.ok) {
       const data = await response.json();
-      console.log('fetchAllCategories', data);
-      return data;
+      return data.results;
     } else {
       throw new Error('Something went wrong: ');
     };

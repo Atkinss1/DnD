@@ -3,20 +3,21 @@ import '../../assets/styles/hero.scss';
 import { useEffect } from 'react';
 import { useCategoryContext } from '../../context/categoryProvider';
 import { CategoryCard } from '../Card/CategoryCard';
+import { fetchCategoryApi } from '../../utils/Categories/fetchCategoryApi';
+import { fetchTopicApi } from '../../utils/Topics/fetchTopicApi';
 
 const Hero = () => {
 
-  const { fetchCategoryData, categories, loadingCategories, error } = useCategoryContext();
-  const { category } = useParams();
+  const { fetchCategoryData, fetchTopicData, clearTopicApi, categories, loadingCategories, error } = useCategoryContext();
+  const { category, topic } = useParams();
   const location = useLocation();
-  
+
   const apiPath = location.pathname;
   console.log('categories', categories);
 
   useEffect(() => {
-    if (category && fetchCategoryData) {
-      fetchCategoryData(apiPath);
-    }
+    fetchCategoryApi({ category, topic, fetchCategoryData, clearTopicApi, apiPath });
+    fetchTopicApi({ topic, fetchTopicData, apiPath });
   }, [apiPath]);
   
   if (loadingCategories) {
@@ -33,11 +34,11 @@ const Hero = () => {
         <h1>{category ? `Category: ${category}` : null}</h1>
       </div>
 
-      {category ? (
+      {category && !topic ? (
         categories.map((category) =>  
           <CategoryCard key={category.index} {...category} />
         )
-      ) :  (
+      ) : topic ? null : (
           <div className="hero-container">
           <div className="hero-image">
             <div className="hero-image-text">
