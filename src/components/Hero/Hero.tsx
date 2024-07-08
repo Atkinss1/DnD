@@ -14,7 +14,6 @@ const Hero = () => {
   const location = useLocation();
 
   const apiPath = location.pathname;
-  console.log('categories', categories);
 
   useEffect(() => {
     fetchCategoryApi({ category, topic, fetchCategoryData, clearTopicApi, apiPath });

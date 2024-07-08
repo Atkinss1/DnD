@@ -1,3 +1,4 @@
+import { renderTopicData } from "../../utils/Topics/RenderTopicData";
 
 interface TopicCardProps  {
   topicData: Record<string, any>;
@@ -12,6 +13,8 @@ export const TopicCard = ({ topicData }: TopicCardProps) => {
 
   return (
     <>
+      <h3>Topic Data</h3>
+      {renderTopicData(topicData)}
     </>
   )
 };
