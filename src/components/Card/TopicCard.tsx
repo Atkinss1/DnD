@@ -1,15 +1,17 @@
-import { CardProps } from "../../types/types";
 
-interface TopicCardProps extends CardProps {
+interface TopicCardProps  {
+  topicData: Record<string, any>;
 }
 
-export const TopicCard = ({ name, url, ...topicData }: TopicCardProps) => { 
+export const TopicCard = ({ topicData }: TopicCardProps) => { 
   
-  console.log('topicData', topicData);
+  const category = Object.keys(topicData)[0];
+  const topic = topicData[category];
+
+  console.log('topic in TopicCard: ', topic);
+
   return (
     <>
-      {name}
-      {url}
     </>
   )
 };

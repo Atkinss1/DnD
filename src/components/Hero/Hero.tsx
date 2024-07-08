@@ -39,7 +39,7 @@ const Hero = () => {
         categories.map((category) =>  
           <CategoryCard key={category.index} {...category} />
         )
-      ) : topic ? <TopicCard {...topicData}/> : (
+      ) : topic ? <TopicCard  topicData={topicData}/> : (
           <div className="hero-container">
           <div className="hero-image">
             <div className="hero-image-text">
