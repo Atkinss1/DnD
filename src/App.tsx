@@ -13,6 +13,9 @@ function App() {
         <Route path='/' element={<Hero />}/>
         <Route path='/api/:category' element={<Hero />} />
         <Route path='/api/:category/:topic' element={<Hero />} />
+        <Route path='/api/:category/:topic/:levels' element={<Hero />} />
+        <Route path='/api/:category/:topic/:levels/:number' element={<Hero />} />
+
       </Routes> 
     </>
   )

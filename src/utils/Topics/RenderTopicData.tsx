@@ -1,69 +1,58 @@
-import { SingleTopicData } from "../../types/types"
+import { useNavigate } from "react-router-dom";
 
-interface TopicDataProps {
-  [key: string]: SingleTopicData;
+interface SingleTopicData {
+  [key: string]: any;
 }
 
-export const renderTopicData = (topicData: TopicDataProps) => {
-  return Object.keys(topicData).map((key) => {
-    
-    let value: SingleTopicData = topicData[key];
+interface TopicDataProps {
+  topicData: {[key: string]: SingleTopicData };
+}
 
-    if (Array.isArray(value)) { 
-      console.log('value is an array', key);
+export const RenderTopicData = ({ topicData }: TopicDataProps) => {
+  const topic = Object.keys(topicData)[0];
+  const topicObj = topicData[topic];
+  console.log(topicData);
+
+  const navigate = useNavigate();
+
+  const handleClick = (api: string) => {
+    navigate(api);
+  }
+  
+  const renderData = (topicData: any) => { 
+    if (Array.isArray(topicData)) { 
       return (
-        <div key={key}>
-          <h4>{key}</h4>
-          <ul>
-            {value.map((item, index) =>
-              <li key={index}>{item}</li>
-            )}
-          </ul>
+        <ul>
+          {topicData.sort().map((item, index) => {
+            return <li key={index}> &nbsp;{renderData(item)}&nbsp;</li>
+          })}
+          <br />
+        </ul>
+      );
+    } else if (typeof topicData === 'object' && topicData !== null) {
+      console.log('topicData object', topicData);
+      return (
+        <div>
+          {Object.keys(topicData).sort().map((key) => {
+            if (key === 'index' || key === 'type' || key === 'option_type' || key === 'option_set_type') {
+              return null;
+            }
+            return (
+              <div key={key}>
+                <strong>{key}&nbsp;:</strong> {renderData(topicData[key])}
+              </div>
+            );
+          })} 
         </div>
       );
+    } else {
+      if (typeof topicData === 'string' && topicData.includes('api')) {
+        return <button onClick={() => handleClick(topicData)}>{topicData}</button>
+      }
+      return <span>{topicData}</span>
     }
+  };
+  
+  return <div>{renderData(topicObj)}</div>;
 
-    if (typeof value === 'object' && !Array.isArray(value)) {
-      console.log('value and not array', value);
-      return (
-        <div key={key}>
-          <h4>{key}</h4>
-          <ul>
-            {Object.keys(value).map((nestedKey) => {
-              console.log('iterate through value', value[nestedKey as keyof SingleTopicData]);
-              if (nestedKey === 'index') {
-                return null;
-              }
-
-              if (typeof value[nestedKey as keyof SingleTopicData] === 'object' && !Array.isArray(value[nestedKey as keyof SingleTopicData])) {
-                return (
-                  <div key={nestedKey}>
-                    <h4>{nestedKey}</h4>
-                    <ul>
-                      {Object.keys(nestedKey).map((deeplyNestedKey) => {
-                        if (deeplyNestedKey === 'index') {
-                          return null;
-                        }
-
-                        return <li key={nestedKey}>
-                          <strong>{deeplyNestedKey}: </strong>
-                          {value[deeplyNestedKey as keyof SingleTopicData]}
-                        </li>
-                      })}
-                    </ul>
-                  </div>
-                )
-              }
-
-              return <li key={nestedKey}>
-                <strong>{nestedKey}: </strong>
-                {value[nestedKey as keyof SingleTopicData]}
-              </li>
-            })}
-          </ul>
-        </div>
-      );
-    }
-    return null;
-  })
 };

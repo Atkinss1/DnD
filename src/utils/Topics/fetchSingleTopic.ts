@@ -7,7 +7,6 @@ export const fetchSingleTopic = async (api: string): Promise<SingleTopicData> =>
 
     if (response.ok) {
       const data = await response.json();
-      console.log('singleTopic: ', data);
       return data;
     } else {
       throw new Error('Something went wrong: ');

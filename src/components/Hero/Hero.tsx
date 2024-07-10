@@ -12,7 +12,7 @@ const Hero = () => {
   const { fetchCategoryData, fetchTopicData, clearTopicApi, categories, topicData, loadingCategories, error } = useCategoryContext();
   const { category, topic } = useParams();
   const location = useLocation();
-
+  
   const apiPath = location.pathname;
 
   useEffect(() => {
