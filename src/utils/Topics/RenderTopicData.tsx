@@ -46,7 +46,7 @@ export const RenderTopicData = ({ topicData }: TopicDataProps) => {
         </div>
       );
     } else {
-      if (typeof topicData === 'string' && topicData.includes('api')) {
+      if (typeof topicData === 'string' && topicData.includes('/api/')) {
         return <button onClick={() => handleClick(topicData)}>{topicData}</button>
       }
       return <span>{topicData}</span>
