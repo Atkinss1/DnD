@@ -1,11 +1,11 @@
+import { useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import '../../assets/styles/hero.scss';
-import { useEffect } from 'react';
 import { useCategoryContext } from '../../context/categoryProvider';
-import { CategoryCard } from '../Card/CategoryCard';
 import { fetchCategoryApi } from '../../utils/Categories/fetchCategoryApi';
 import { fetchTopicApi } from '../../utils/Topics/fetchTopicApi';
-import { TopicCard } from '../Card/TopicCard';
+import { CategoryCard } from '../Card/category/CategoryCard';
+import { TopicCard } from '../Card/topic/TopicCard';
 
 const Hero = () => {
 

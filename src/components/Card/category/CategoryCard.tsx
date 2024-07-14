@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { CardProps } from "../../types/types";
+import { CardProps } from "../../../types/types";
+import { Button } from "@mui/material";
 
 export const CategoryCard = ({ name, url}: CardProps) => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ export const CategoryCard = ({ name, url}: CardProps) => {
     <>
       <h1>{name}</h1>
       <br />
-      <button onClick={() => handleClick(url)}>Learn More</button>
+      <Button size="large" onClick={() => handleClick(url)}>Learn More</Button>
     </>
   )
 }

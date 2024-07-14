@@ -1,4 +1,4 @@
-import { RenderTopicData } from "../../utils/Topics/RenderTopicData";
+import { RenderTopicData } from "./RenderTopicData";
 
 export interface TopicCardProps  {
   topicData: Record<string, any>;

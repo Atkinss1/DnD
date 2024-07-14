@@ -1,3 +1,10 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import { useNavigate } from "react-router-dom";
 
 interface SingleTopicData {
@@ -10,8 +17,8 @@ interface TopicDataProps {
 
 export const RenderTopicData = ({ topicData }: TopicDataProps) => {
   const topic = Object.keys(topicData)[0];
-  const topicObj = topicData[topic];
-  console.log(topicData);
+  const data = topicData[topic];
+  const bannedTitles = ['index', 'type', 'option_type', 'option_set_type'];
 
   const navigate = useNavigate();
 
@@ -20,6 +27,7 @@ export const RenderTopicData = ({ topicData }: TopicDataProps) => {
   }
   
   const renderData = (topicData: any) => { 
+
     if (Array.isArray(topicData)) { 
       return (
         <ul>
@@ -30,11 +38,10 @@ export const RenderTopicData = ({ topicData }: TopicDataProps) => {
         </ul>
       );
     } else if (typeof topicData === 'object' && topicData !== null) {
-      console.log('topicData object', topicData);
       return (
         <div>
           {Object.keys(topicData).sort().map((key) => {
-            if (key === 'index' || key === 'type' || key === 'option_type' || key === 'option_set_type') {
+            if (bannedTitles.includes(key)) {
               return null;
             }
             return (
@@ -47,12 +54,12 @@ export const RenderTopicData = ({ topicData }: TopicDataProps) => {
       );
     } else {
       if (typeof topicData === 'string' && topicData.includes('/api/')) {
-        return <button onClick={() => handleClick(topicData)}>{topicData}</button>
+        return <Button size="large" onClick={() => handleClick(topicData)}>Learn More</Button>
       }
       return <span>{topicData}</span>
     }
   };
   
-  return <div>{renderData(topicObj)}</div>;
+  return <div>{renderData(data)}</div>;
 
 };
