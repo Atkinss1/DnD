@@ -36,9 +36,15 @@ const Hero = () => {
 
       {category && !topic ? (
         categories.map((category) =>  
-          <CategoryCard key={category.index} {...category} />
+          <div className='category-container'>
+            <CategoryCard key={category.index} {...category} />
+          </div>
         )
-      ) : topic ? <TopicCard  topicData={topicData}/> : (
+      ) : topic ?
+          <div className="topic-container">
+            <TopicCard topicData={topicData} /> 
+          </div>
+          : (
           <div className="hero-container">
           <div className="hero-image">
             <div className="hero-image-text">

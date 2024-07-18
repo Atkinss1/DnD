@@ -1,10 +1,5 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
+import '../../../assets/styles/topicCard.scss'
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import { useNavigate } from "react-router-dom";
 
 interface SingleTopicData {
@@ -40,15 +35,24 @@ export const RenderTopicData = ({ topicData }: TopicDataProps) => {
     } else if (typeof topicData === 'object' && topicData !== null) {
       return (
         <div>
-          {Object.keys(topicData).sort().map((key) => {
+          {Object.keys(topicData).map((key) => {
             if (bannedTitles.includes(key)) {
               return null;
             }
+            if (key === 'name' || key === 'url') {
+              return (
+                <div key={key}>
+                  <strong className='topic-key-title'>{renderData(topicData[key])}</strong>
+                  <br />
+                </div>
+              )
+            }
             return (
               <div key={key}>
-                <strong>{key}&nbsp;:</strong> {renderData(topicData[key])}
+                <strong className='topic-key-title'>{key}&nbsp;</strong>
+                {renderData(topicData[key])}
               </div>
-            );
+            ) 
           })} 
         </div>
       );
@@ -60,6 +64,6 @@ export const RenderTopicData = ({ topicData }: TopicDataProps) => {
     }
   };
   
-  return <div>{renderData(data)}</div>;
+  return <div className='topic-card'>{renderData(data)}</div>;
 
 };
