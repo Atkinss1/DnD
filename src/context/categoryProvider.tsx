@@ -35,7 +35,7 @@ export const CategoryProvider = ({ children }: CategoryProviderProps) => {
   const fetchCategoryData = async (api: string) => {
     try {
       dispatch({ type: "FETCH_CATEGORIES_REQUEST" });
-      const categoryData = await fetchAllCategories(`${BASEURL}${api}`);
+      const categoryData = await fetchAllCategories(api);
 
       dispatch({ type: "SET_CATEGORY_API", payload: api });
       dispatch({ type: "FETCH_CATEGORIES_SUCCESS", payload: categoryData });
@@ -47,6 +47,8 @@ export const CategoryProvider = ({ children }: CategoryProviderProps) => {
   const fetchTopicData = async (api: string) => { 
     try {
       dispatch({ type: "FETCH_TOPICS_REQUEST" });
+      const parsedAPI = api.split('/').pop();
+      console.log('api: ', parsedAPI);
       const topicData = await fetchSingleTopic(`${BASEURL}${api}`);
 
       dispatch({ type: "SET_TOPIC_API", payload: api });

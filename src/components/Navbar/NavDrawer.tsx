@@ -45,7 +45,7 @@ export default function NavDrawer() {
 
   return (
     <div>
-      <Button sx={{ color: 'white', width: '200px', height: '50px', backgroundColor: '#930C10' }} onClick={toggleDrawer(true)}>Categories</Button>
+      <Button sx={{ color: 'white', width: '200px', height: '50px', backgroundColor: '#930C10' }} onClick={toggleDrawer(true)}>Topics</Button>
       <Drawer open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>

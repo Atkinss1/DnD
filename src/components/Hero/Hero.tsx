@@ -17,7 +17,7 @@ const Hero = () => {
 
   useEffect(() => {
     fetchCategoryApi({ category, topic, fetchCategoryData, clearTopicApi, apiPath });
-    fetchTopicApi({ topic, fetchTopicData, apiPath });
+    fetchTopicApi({ topic, fetchTopicData, apiPath});
   }, [apiPath]);
   
   if (loadingCategories) {
@@ -36,8 +36,8 @@ const Hero = () => {
 
       {category && !topic ? (
         categories.map((category) =>  
-          <div className='category-container'>
-            <CategoryCard key={category.index} {...category} />
+          <div key={category.index} className='category-container'>
+            <CategoryCard {...category} />
           </div>
         )
       ) : topic ?

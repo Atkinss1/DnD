@@ -8,7 +8,7 @@ interface fetchCategoryApiProps {
 }
 
 
-export const fetchCategoryApi = ({ category, topic, fetchCategoryData, clearTopicApi, apiPath }: fetchCategoryApiProps) => {
+export const fetchCategoryApi = ({ category, topic, fetchCategoryData, clearTopicApi}: fetchCategoryApiProps) => {
   
   if (!category && clearTopicApi) {
     clearTopicApi();
@@ -16,6 +16,6 @@ export const fetchCategoryApi = ({ category, topic, fetchCategoryData, clearTopi
 
   if (category && !topic && fetchCategoryData && clearTopicApi) {
     clearTopicApi();
-    fetchCategoryData(apiPath);
+    fetchCategoryData(category);
   }
 };
