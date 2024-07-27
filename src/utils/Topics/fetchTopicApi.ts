@@ -4,7 +4,7 @@ interface fetchTopicApiProps {
   apiPath: string;
 }
 
-export const fetchTopicApi = ({topic, apiPath, fetchTopicData}: fetchTopicApiProps) => {
+export const fetchTopicApi = ({ topic, apiPath, fetchTopicData }: fetchTopicApiProps) => {
   if (topic && fetchTopicData) {
     fetchTopicData(apiPath);
   }

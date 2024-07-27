@@ -1,23 +1,23 @@
+import { useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import '../../assets/styles/hero.scss';
-import { useEffect } from 'react';
 import { useCategoryContext } from '../../context/categoryProvider';
-import { CategoryCard } from '../Card/CategoryCard';
 import { fetchCategoryApi } from '../../utils/Categories/fetchCategoryApi';
 import { fetchTopicApi } from '../../utils/Topics/fetchTopicApi';
+import { CategoryCard } from '../Card/category/CategoryCard';
+import { TopicCard } from '../Card/topic/TopicCard';
 
 const Hero = () => {
 
-  const { fetchCategoryData, fetchTopicData, clearTopicApi, categories, loadingCategories, error } = useCategoryContext();
+  const { fetchCategoryData, fetchTopicData, clearTopicApi, categories, topicData, loadingCategories, error } = useCategoryContext();
   const { category, topic } = useParams();
   const location = useLocation();
-
+  
   const apiPath = location.pathname;
-  console.log('categories', categories);
 
   useEffect(() => {
     fetchCategoryApi({ category, topic, fetchCategoryData, clearTopicApi, apiPath });
-    fetchTopicApi({ topic, fetchTopicData, apiPath });
+    fetchTopicApi({ topic, fetchTopicData, apiPath});
   }, [apiPath]);
   
   if (loadingCategories) {
@@ -36,9 +36,15 @@ const Hero = () => {
 
       {category && !topic ? (
         categories.map((category) =>  
-          <CategoryCard key={category.index} {...category} />
+          <div key={category.index} className='category-container'>
+            <CategoryCard {...category} />
+          </div>
         )
-      ) : topic ? null : (
+      ) : topic ?
+          <div className="topic-container">
+            <TopicCard topicData={topicData} /> 
+          </div>
+          : (
           <div className="hero-container">
           <div className="hero-image">
             <div className="hero-image-text">

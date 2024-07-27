@@ -5,7 +5,7 @@ export interface Topics {
   [key: string]: string;
 }
 
-export interface TopicCardProps {
+export interface CardProps {
   name: string;
   url: string;
 }
@@ -19,7 +19,7 @@ export interface SingleTopicData {
 
 // Category Interfaces
 
-export interface BaseCharacterInterface extends TopicCardProps {
+export interface BaseCharacterInterface extends CardProps {
   index: string;
 }
 
